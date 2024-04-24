@@ -1,0 +1,444 @@
+/*
+    Theme Name: editorialCtema
+    Theme URI: 
+    Author: Cristian Alessandro Verdin Mata
+    Author URI: 
+    Description: Theme diseñado para prueba
+    Version: 1.0
+    License: GNU General Public License v2 or later
+    License URI: http://www.gnu.org/licenses/gpl-2.0.html
+    Tags: flexbox, css grid, mobile first
+    Text Domain: editorialC
+*/
+
+:root{
+--rosa:#f687b0;
+--morado-palido: #ae90bf;
+--azul-palido: #a2d2ff;
+--morado-fuerte: #9b5de5;
+
+
+
+
+
+}
+html{
+    font-size:62.5% ;
+}
+
+body{
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height:2 ;
+    margin: 0; 
+    padding: 0;
+}
+
+/**headings*/
+h1,h2,h3,h4{
+    margin: 0 0 5rem 0;
+    line-height: 1.2;
+}
+h1{
+    font-size: 6rem;
+}
+h2{
+    font-size: 4.8rem;
+}
+h3{
+    font-size: 3.6rem;
+}
+h4{
+    font-size: 2.4rem;
+}
+
+/**Globales*/
+p{
+    margin:0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+hr{
+    border: 1px solid var(--morado-palido);
+}
+
+.imagen-destacada{
+    margin-bottom: 3rem;
+}
+
+.contenedor{
+    width: min(95%, 100%);
+    margin: 0 auto;
+}
+
+.contenido-centrado{
+    width: min(95%, 80rem); 
+
+}
+
+/**utilidades**/
+
+.text-center{
+    text-align: center;
+}
+.text-primary{
+    color: black;
+}
+.text-blanco{
+    color: white;
+}
+.text-rosa{
+    color: var(--rosa);
+}
+.seccion{
+    padding: 5rem 0;
+}
+
+/**header*/
+.logo{
+    width: 120px;
+}
+
+
+.header {
+    background-color: var(--rosa);
+    padding: 0.5rem 0; /* Reduce el relleno superior e inferior */
+}
+
+.barra-navegacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media(min-width: 768px){
+    .barra-navegacion{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+/* .menu-principal{
+  display: none;
+} */
+.hamburguer-menu:hover{
+    cursor: pointer;
+
+}
+@media(min-width: 768px){
+    .hamburguer-menu{
+        display: none;
+    }
+}
+.contenedor-menu{
+    opacity: 0;
+    max-height: 0;
+    transition-delay: 100ms, 300ms;
+    transition-property: opacity, max-height ;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+.mostrar{
+    opacity: 1;
+    max-height: 35rem;
+    transition-delay: 100ms, 300ms;
+    transition-property: max-height, opacity;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+
+@media(min-width: 768px){
+    .contenedor-menu{
+       all:unset;
+    }
+}
+@media(min-width: 768px){
+    .menu-principal{
+        display: block;
+      }
+    .menu-principal .menu{
+        display: flex;
+    }
+}
+.menu-principal a{
+display: block;
+text-align: center;
+color: #ffff;
+font-size: 2.2rem;
+padding: .5rem 2rem;
+}
+
+.menu-principal .current_page_item{
+    border-bottom: 3px solid var(--azul-palido);
+}
+
+/** footer**/
+.contenido-footer{
+    padding: 4rem 0;
+
+}
+@media(min-width:780px){
+    .contenido-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.footer .menu-principal a{
+    color:var(--rosa) ;
+    text-align: center;
+    font-size: 2.4rem;
+    padding: 0 1rem;
+
+}
+.copyright{
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 2rem 0 0 0 ;
+}
+
+@media(min-width:780px){
+    .copyright{
+        font-size: 2.4rem;
+        margin:0 ;
+    }
+}
+
+/**card de productos**/
+/* Estilos generales para el contenedor y la lista */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Estilos por defecto para pantallas grandes */
+.listado-gridProducto {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas para escritorio */
+    gap: 20px;
+}
+
+/* Estilos para tabletas (pantallas con un ancho de hasta 768px) */
+@media (max-width: 768px) {
+    .listado-gridProducto {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas para tabletas */
+    }
+}
+
+/* Estilos para celulares (pantallas con un ancho de hasta 480px) */
+@media (max-width: 480px) {
+    .listado-gridProducto {
+        grid-template-columns: 1fr; /* Una columna para celulares */
+    }
+}
+
+
+
+/* Estilos para las tarjetas de productos */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    max-width: 300px; /* Establece el ancho máximo de la tarjeta */
+    margin: 0 auto; /* Centra las tarjetas horizontalmente */
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    text-align: center;
+    color:#fff;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--morado-palido);
+    border-bottom: 1px solid #e1e1e1;
+    border-radius: 10px 10px 0 0;
+}
+
+.imagen-producto {
+    width: 100%;
+    max-height: 200px; /* Establece la altura máxima de la imagen */
+    overflow: hidden;
+}
+
+.imagen-producto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.imagen-producto img:hover {
+    transform: scale(1.05);
+}
+
+.card p {
+    padding: 20px;
+    margin: 0;
+    color: #666666;
+    font-size: 1em;
+}
+
+
+/* Estilos generales para las tarjetas del blog */
+.listado-grid {
+    margin-top: 4rem;
+    display: grid;
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .listado-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+.cardBlog {
+    background-image: linear-gradient(to bottom, transparent 0, rgb(0 0 0 / .7));
+    position: relative;
+    overflow: hidden;
+}
+.contenedor-wp-post-image{
+    width: 50%;
+    height: auto;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+
+
+/**vategorias en card de blog**/
+.cardBlog .post-categories{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    gap: 2rem;
+
+}
+.cardBlog .post-categories li{
+    background-color: var(--morado-palido);
+    padding: .5rem 1rem;
+    border-radius: 5px;
+}
+.cardBlog .post-categories a{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+.cardBlog:hover img {
+    transform: scale(1.1);
+}
+
+.cardBlog img {
+    display: block;
+    position: relative;
+    z-index: -1;
+    height: 30rem;
+    object-fit: cover;
+    transition: transform 300ms ease;
+}
+
+.cardBlog .contenido {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+}
+
+.cardBlog .contenido h3 {
+    color: #fff;
+    margin: 0;
+}
+
+.cardBlog .contenido p, .cardBlog .contenido a {
+    color: #fff;
+    font-weight: 800;
+}
+
+.cardBlog .meta{
+    font-size: 1.4rem;
+}
+.cardBlog .meta span{
+color: var(--azul-palido);
+}
+
+
+/**informacion meta**/
+.meta-info{
+    background-color: #f5f5f5;
+    padding: 2rem;
+    
+}
+@media(min-width: 992px){
+    .meta-info{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.meta-info p, .meta-info a{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #000;
+    
+}
+.meta-info span{
+    color: var(--morado-fuerte);
+}
+
+.meta-info .categoria{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/**paginascion**/
+
+.pagination .screen-reader-text{
+    visibility: hidden;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+.nav-links a{
+    font-size: 1.4rem;
+    color: var(--morado-fuerte);
+    font-weight: 700;
+    padding: .5rem;
+}
+
+.nav-links .current{
+    font-size: 1.4rem;
+    padding: .5rem;
+}
